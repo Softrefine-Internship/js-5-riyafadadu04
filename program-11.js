@@ -11,7 +11,7 @@ class BankAccount {
     if (amount > 0) {
       this.balance += amount;
       console.log(
-        `Deposit of ${amount} successfull in ${this.accountHolderName}. New balance: ${this.balance}`
+        `Deposit of ${amount} successfull in ${this.accountNumber}. New balance: ${this.balance}`
       );
     } else {
       console.log("Invalid deposit amount. Please enter a positive value.");
@@ -22,7 +22,7 @@ class BankAccount {
     if (amount > 0 && amount <= this.balance) {
       this.balance -= amount;
       console.log(
-        `Withdrawal of ${amount} successfull in ${this.accountHolderName}. New balance: ${this.balance}`
+        `Withdrawal of ${amount} successfull in ${this.accountNumber}. New balance: ${this.balance}`
       );
     } else {
       console.log("Invalid withdrawal amount.");
@@ -36,9 +36,9 @@ class BankAccount {
     }
     if (amount > 0 && amount <= this.balance) {
       this.balance -= amount;
-      // targetAccount.deposit(amount);
+      targetAccount.balance += amount;
       console.log(
-        `Transfer of ${amount} successfull to ${targetAccount.accountHolderName}. New balance for ${this.accountHolderName}: ${this.balance}, New balance for ${targetAccount.accountHolderName}: ${targetAccount.balance}`
+        `Transfer of ${amount} successfull to ${targetAccount.accountNumber}. New balance for ${this.accountNumber}: ${this.balance}, New balance for ${targetAccount.accountNumber}: ${targetAccount.balance}`
       );
     } else {
       console.log("Invalid transfer amount.");

@@ -1,6 +1,6 @@
 // Write a JavaScript program that creates a class called "BankAccount" with properties for account number and balance. Include methods to deposit and withdraw money from the account. Create some instances of the "BankAccount" class, deposit some money, and withdraw a portion of it.
 
-class Account {
+class BankAccount {
     constructor(accountNumber, initialBalance) {
         this.accountNumber = accountNumber;
         this.balance = initialBalance;
@@ -9,22 +9,24 @@ class Account {
     deposit(amount) {
         if (amount > 0) {
             this.balance += amount;
-            console.log(`Deposited ${amount} into your account ${this.accountNumber}. New balance: ${this.balance}`);
+            return this.balance;
         } else {
-            console.log("Invalid deposit amount.");
+            return "Invalid deposit amount.";
         }
     }
     
     withdraw(amount) {
         if (amount > 0 && amount <= this.balance) {
             this.balance -= amount;
-            console.log(`Withdraw ${amount} from your account ${this.accountNumber}. New balance: ${this.balance}`);
+            return this.balance;
         } else {
-            console.log("Invalid withdrawal amount or insufficient funds.");
+            return "Invalid withdrawal amount or insufficient balance.";
         }
     }
 }
 
-const account = new Account("123456789", 1000);
-account.deposit(500);
-account.withdraw(200);
+const account = new BankAccount("123456789", 1000);
+
+console.log("Initial balance:", account.balance);
+console.log("Deposited 500, new balance:", account.deposit(500));
+console.log("Withdrew 200, new balance:", account.withdraw(200));

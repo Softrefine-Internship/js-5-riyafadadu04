@@ -2,6 +2,9 @@
 
 class University {
   constructor(name, department = []) {
+    if (!Array.isArray(department) || typeof name !== "string") {
+      throw new Error("Invalid input parameter");
+    }
     this.name = name;
     this.department = department;
   }

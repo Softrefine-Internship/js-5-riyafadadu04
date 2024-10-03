@@ -2,6 +2,9 @@
 
 class Bank {
   constructor(name, branches = []) {
+    if (!Array.isArray(branches) || typeof name !== "string") {
+      throw new Error("Invalid input parameter");
+    }
     this.name = name;
     this.branches = branches;
   }
@@ -34,8 +37,8 @@ class Bank {
   }
 }
 
-let bank = new Bank("BOB", ["Branch-1", "Branch-2", "Branch-3"]);
+let bank = new Bank("BOB", ["Ahmdabad", "Gandhinagar", "Junagadh"]);
 
-bank.addBranch("Branch-4");
-bank.removeBranch("Branch-2");
+bank.addBranch("Rajkot");
+bank.removeBranch("Gandhinagar");
 bank.displayBranches();

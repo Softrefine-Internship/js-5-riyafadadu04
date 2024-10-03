@@ -2,6 +2,9 @@
 
 class Animal {
   constructor(species, sound) {
+    if (typeof species !== "string" || typeof sound !== "string") {
+      throw new Error("species and sound must be a string");
+  }
     this.species = species;
     this.sound = sound;
   }
@@ -13,6 +16,9 @@ class Animal {
 
 class Dog extends Animal {
   constructor(species, sound, color) {
+    if (typeof color!== "string") {
+      throw new Error("color must be a string");
+    }
     super(species, sound);
     this.color = color;
   }
